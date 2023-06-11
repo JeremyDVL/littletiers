@@ -30,7 +30,7 @@ app.get('/data', function(req, res){
 // add user
 app.post('/add', function(req, res){
     var user = {
-        'nam'          : req.body.name,
+        'name'          : req.body.name,
         'dob'           : req.body.dob,
         'email'         : req.body.email,
         'username'      : req.body.username,
