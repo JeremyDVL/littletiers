@@ -2,14 +2,17 @@ name: demo
 
 on: push
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
-  first_demo_job:
-    name: The first demo job
+  greeting_job:
     runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
     steps:
-      - name: Show the demo running
+      - name: "Say Hello Jeremy it's Monday"
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          Greeting: Hello
-        run: |
-          -name: "Say Hello"
-           echo "Hello Happy $DAY_OF_WEEK!"
+          First_Name: Jeremy
